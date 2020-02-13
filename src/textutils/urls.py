@@ -19,10 +19,10 @@ from .import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index,name="index"),
-    path('removepunctuation',views.rempunc,name="rempunc"),
-    path('capitalizefirst',views.capfirst,name="capfirst"),
-    path('newlineremove',views.newlinerem,name="newlinerem"),
-    path('spaceremove',views.spacerem,name="spacerem"),
-    path('charactercount',views.charcount,name="charcount")
+    path('', views.index, name="index"),
+    path('removepunctuation', views.rempunc, name="rempunc"),
+    path('capitalizefirst', views.capfirst, name="capfirst"),
+    path('newlineremove', views.newlinerem, name="newlinerem"),
+    path('spaceremove', views.spacerem, name="spacerem"),
+    path('charactercount', views.charcount, name="charcount")
 ]

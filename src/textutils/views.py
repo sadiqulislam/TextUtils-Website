@@ -1,12 +1,13 @@
 #Self Created-Shishir
 
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("Home")
+    return render(request, 'index.html')
 
 def rempunc(request):
-    return HttpResponse("Remove Punctuation")
+    return render(request, 'index.html')
 
 def capfirst(request):
     return HttpResponse("Capitalize First")
