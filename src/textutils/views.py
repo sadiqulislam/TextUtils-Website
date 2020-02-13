@@ -4,19 +4,21 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 def index(request):
-    return render(request, 'index.html')
+    shishir={'Place':'Neptune','Age':'1000'}
+    return render(request, 'index.html',shishir)
 
 def rempunc(request):
-    return render(request, 'index.html')
+    return render(request, 'removepunc.html')
 
 def capfirst(request):
-    return HttpResponse("Capitalize First")
+    return render(request, 'capitalfirst.html')
 
 def newlinerem(request):
-    return HttpResponse("New LIne Remover")
+    return render(request, 'newlinere.html')
 
 def spacerem(request):
-    return HttpResponse("Space Remover")
+    return render(request, 'spacerem.html')
 
 def charcount(request):
-    return HttpResponse("Char Counter")
+    return render(request, 'charcout.html')
+
