@@ -12,6 +12,7 @@
         }
        nav{
     background-color:aliceblue;
+    height:25px;
 }
 
 nav ul{
@@ -37,6 +38,15 @@ margin: 0px;
 width: 1200px;
 height: 252px;
 }
+
+.content h1
+{
+    text-align:center;
+}
+.content h2
+{
+   text-align:center;
+}
     </style>
 </head>
 <body>
@@ -53,11 +63,12 @@ height: 252px;
     </nav>
 
     <div class="content">
+        <h1>Welcome To Text analyzer</h1>
         <h2>Enter Your Text Here:</h2>
         <form action="/removepunctuation" method="get">
         <textarea name="" id="text-area" cols="100" rows="20" placeholder="Put Your Text Here"></textarea>
 
-            <button type="submit">Submit</button>
+            <button type="submit">Analyze</button>
         </form>
 
     </div>
