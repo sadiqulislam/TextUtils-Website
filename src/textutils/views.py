@@ -2,36 +2,59 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
+import string
 
 
 def index(request):
-    shishir = {'Place': 'Neptune', 'Age': '1000'}
-    return render(request, 'index.html', shishir)
+    return render(request, 'index.html')
 
 
-def rempunc(request):
-    # print(request.GET.get('text','default')) #Not Working
-
-    # Get The Text:
-
+def analyze(request):
+    #Get The Text:
     djtext = request.GET.get('text', 'default')
+    removepunctuation = request.GET.get('removepunctuation', 'default')
+    print(removepunctuation)
     print(djtext)
 
     # Analyze The Text"
-    return render(request, 'removepunc.html')
+    if removepunctuation== "on":
+        punctuations = string.punctuation
+        analyze = ""
+        for char in djtext:
+            if char not in punctuations:
+                analyze = analyze + char
 
+        params = {'purpose': 'Remove Punctuation', 'analyzed_text': analyze}
+        #return HttpResponse('rempunc')
+        return render(request, 'analyzer.html', params)
 
-def capfirst(request):
-    return render(request, 'capitalfirst.html')
+    else:
+        return HttpResponse("Error")
 
-
-def newlinerem(request):
-    return render(request, 'newlinere.html')
-
-
-def spacerem(request):
-    return render(request, 'spacerem.html')
-
-
-def charcount(request):
-    return render(request, 'charcout.html')
+#
+# def rempunc(request):
+#     # print(request.GET.get('text','default')) #Not Working
+#
+#     # Get The Text:
+#     djtext = request.GET.get('text', 'default')
+#     print(djtext)
+#     # Analyze The Text"
+#
+#     return HttpResponse('rempunc')
+#     #return render(request, 'removepunc.html')
+#
+#
+# def capfirst(request):
+#     return render(request, 'capitalfirst.html')
+#
+#
+# def newlinerem(request):
+#     return render(request, 'newlinere.html')
+#
+#
+# def spacerem(request):
+#     return render(request, 'spacerem.html')
+#
+#
+# def charcount(request):
+#     return render(request, 'charcout.html')
