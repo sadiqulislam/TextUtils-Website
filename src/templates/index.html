@@ -3,10 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <style>
+        .container
+        {
+        width:1200px;
+        margin:0 auto;
+
+        }
+       nav{
+    background-color:aliceblue;
+}
+
+nav ul{
+    margin:  0;
+    padding:  0;
+    text-align:  center;
+}
+
+
+nav ul li{
+    list-style:  none;
+    display:  inline-block;
+}
+
+nav ul li a{text-decoration:  none;color: #b79f9f;text-transform:  uppercase;font-size:  14px;padding-left:  40px;}
+
+nav ul li a :hover{
+        border:1px solid white;
+}
+
+#text-area{
+margin: 0px;
+width: 1200px;
+height: 252px;
+}
+    </style>
 </head>
 <body>
-<h1>I AM At Home</h1>
+<div class="container">
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/removepunctuation">Remove Punctuation</a></li>
+            <li><a href="/capitalizefirst">Capitalize First</a></li>
+            <li><a href="/newlineremove">New Line Remover</a></li>
+            <li><a href="/spaceremove">Space Remover</a></li>
+            <li><a href="/charactercount">Character Count</a></li>
+        </ul>
+    </nav>
 
-{{ Place }}
+    <div class="content">
+        <h2>Enter Your Text Here:</h2>
+        <form action="/removepunctuation" method="get">
+        <textarea name="" id="text-area" cols="100" rows="20" placeholder="Put Your Text Here"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+</div>
 </body>
 </html>
