@@ -15,8 +15,10 @@ def analyze(request):
 
     # CheckBox Values:
     removepunctuation = request.GET.get('removepunctuation', 'off')
-    caps = request.GET.get('caps','off')
+    caps = request.GET.get('caps', 'off')
     newlineremover = request.GET.get('newlineremover', 'off')
+    espaceremover = request.GET.get('espaceremover', 'off')
+    charcounter = request.GET.get('charcounter', 'off')
     # print(removepunctuation)
     # print(djtext)
 
@@ -50,8 +52,33 @@ def analyze(request):
             if char != "\n":
                 analyze = analyze + char
 
-        params = {'purpose':"New Line Removed",'analyzed_text':analyze}
-        return render(request,'analyzer.html', params)
+        params = {'purpose': "New Line Removed", 'analyzed_text': analyze}
+        return render(request, 'analyzer.html', params)
+
+    elif (espaceremover == "on"):
+
+        analyze = ""
+
+        for index, char in enumerate(djtext):
+            if not(djtext[index] == " " and djtext[index+1] == " "):
+                
+                analyze = analyze+char
+
+        params = {'purpose': "Extra Space remove", 'analyzed_text': analyze}
+        return render(request, 'analyzer.html', params)
+
+
+    elif (charcounter == "on"):
+
+        analyze = ""
+
+        for char in djtext:
+
+            analyze = len(djtext)
+
+
+        params = {'purpose': "Character Counted", 'analyzed_text': analyze}
+        return render(request, 'analyzer.html', params)
 
     else:
         return HttpResponse("Error")
