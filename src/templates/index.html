@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <style>
+
+    body{
+        margin 0 auto:
+        padding 0;
+        background: aliceblue
+    }
         .container
         {
         width:1200px;
@@ -59,6 +65,7 @@ height: 252px;
             <li><a href="/newlineremove">New Line Remover</a></li>
             <li><a href="/spaceremove">Space Remover</a></li>
             <li><a href="/charactercount">Character Count</a></li>
+            <li><a href="/analyzer">Analyzer</a></li>
         </ul>
     </nav>
 
@@ -69,6 +76,8 @@ height: 252px;
         <textarea name="text" id="text-area" cols="100" rows="20" placeholder="Put Your Text Here"></textarea>
 
             <input type="checkbox" name="removepunctuation">Remove Punctuations
+            <input type="checkbox" name="caps"> UPPERCASE
+            <input type="checkbox" name="newlineremover"> New Line Remover
             <button type="submit">Analyze</button>
         </form>
 
