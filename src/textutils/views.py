@@ -11,14 +11,14 @@ def index(request):
 
 def analyze(request):
     #  Get The Text:
-    djtext = request.GET.get('text', 'default')
+    djtext = request.POST.get('text', 'default')
 
     # CheckBox Values:
-    removepunctuation = request.GET.get('removepunctuation', 'off')
-    caps = request.GET.get('caps', 'off')
-    newlineremover = request.GET.get('newlineremover', 'off')
-    espaceremover = request.GET.get('espaceremover', 'off')
-    charcounter = request.GET.get('charcounter', 'off')
+    removepunctuation = request.POST.get('removepunctuation', 'off')
+    caps = request.POST.get('caps', 'off')
+    newlineremover = request.POST.get('newlineremover', 'off')
+    espaceremover = request.POST.get('espaceremover', 'off')
+    charcounter = request.POST.get('charcounter', 'off')
     # print(removepunctuation)
     # print(djtext)
 
@@ -49,7 +49,7 @@ def analyze(request):
         analyze=""
 
         for char in djtext:
-            if char != "\n":
+            if char != "\n" and char != "\r":
                 analyze = analyze + char
 
         params = {'purpose': "New Line Removed", 'analyzed_text': analyze}
